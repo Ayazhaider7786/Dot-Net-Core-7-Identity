@@ -1,3 +1,4 @@
+using AspnetIdentityRoleBasedTutorial.Services;
 using LearnIdentity.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -16,6 +17,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>()
     .AddDefaultUI()
     .AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IFileService, FileService>();
 
 builder.Services.AddControllersWithViews();
 
